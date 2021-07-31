@@ -43,7 +43,7 @@ class Painting
   @@styles = []
   @@paintings = {}
   @@total_count = 0
-  attr_reader :style
+  self.attr_reader :style
 
   def self.all_paintings
     @@paintings
@@ -243,3 +243,38 @@ a = Cow.new #puts statement "hello" from Cow class doesnt get executed
 value = [1, 2, 3]
 p value_at_index_four: value[4], all_values: value
 #{:value_at_index_four=>nil, :all_values=>[1, 2, 3]}
+
+
+def answer
+  ans = gets.chomp.downcase
+  case ans
+  when "blue", "white"
+    puts "blue or white"
+  when "red"
+    puts "red"
+  else
+    puts "else"
+  end
+end
+
+answer
+def gugu(n)
+  a = n+2
+  b = n+3
+ return a, b
+end
+
+a, b = gugu(8)
+p a
+p b
+
+p %w(purple purple green yellow).permutation(4).to_a
+
+a= gets
+p a
+a = $stdin.read
+p a
+
+highlight their all_values
+how my past exper/carrier translates
+how i can learn quicckly
