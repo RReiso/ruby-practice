@@ -97,3 +97,6 @@ end
 
 p FileTest.exist?("./text.txt") # true
 p FileTest.empty?("./text.txt") # false
+
+d = Dir.new("./") # path
+p d.entries # array of files

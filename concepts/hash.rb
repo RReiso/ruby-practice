@@ -36,3 +36,58 @@ p h.size # 1
 # select, reject - with block
 # compact - eliminates keys with value nil
 # clear - empties the hash
+
+food = Hash.new([])
+food[:vegetables] << 'tomatoes'
+food[:fruits] << 'apples'
+p food # {}
+p food[:vegetables] # ["tomatoes", "apples"]
+p food[:fruits] # ["tomatoes", "apples"]
+
+food = Hash.new { |hash, key| hash[key] = [] }
+food[:vegetables] << 'tomatoes'
+food[:fruits] << 'apples'
+p food # {:vegetables=>["tomatoes"], :fruits=>["apples"]}
+p food[:vegetables] # ["tomatoes"]
+p food[:fruits] # ["apples"]
+
+hash1 = { fruit: 'apple', veggetable: 'tomato', number: 7 }
+
+arr = hash1.sort_by { |key, value| key } #[[:fruit, "apple"], [:number, 7], [:veggetable, "tomato"]]
+arr = hash1.sort_by(&:last)
+arr = hash1.sort_by { |key| key } #[[:fruit, "apple"], [:number, 7], [:veggetable, "tomato"]]
+arr1 = hash1.sort_by(&:itself) #[[:fruit, "apple"], [:number, 7], [:veggetable, "tomato"]]
+p arr1
+p arr1.to_h # back to hash
+
+arr.each { |key| p "key: #{key}" }
+#"key: [:fruit, \"apple\"]"
+# "key: [:number, 7]"
+# "key: [:veggetable, \"tomato\"]"
+
+arr.each { |key, value| p "key: #{value}" }
+# "key: apple"
+# "key: 7"
+# "key: tomato"
+
+arr.each { |key, value| p "key: #{key}, value: #{value}" }
+# "key: apple"
+# "key: 7"
+# "key: tomato"
+
+#Find word length with reduce method
+def find_word_lengths(word_list)
+  word_list.reduce(Hash.new(0)) do |hash, el|
+    hash[el] += el.size
+    hash
+  end
+end
+p(find_word_lengths(%w[hi there how is everyone]))
+
+#Find word length with each method
+def word_length(list)
+  hash = {}
+  list.each { |w| hash[w] = w.size }
+  hash
+end
+p(word_length(%w[hi there how is everyone]))

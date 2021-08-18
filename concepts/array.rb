@@ -79,3 +79,14 @@ array = %w[a  b  c  d  1  2  b  c  d  e]
  array.delete_at(array.index("d")) # removes first occurance of "d"
  array.delete("b") # removes all occurances of "b"
  p array # [c, d]
+
+ names_with_ages = [['lucy', 3], ['rita', 9], ['markus', 11]]
+
+names_with_ages.each { |name, age| puts name.ljust(7, '*') + age.to_s }
+# lucy***3
+# rita***9
+# markus*11
+
+value = [1, 2, 3]
+p value_at_index_four: value[4], all_values: value
+#{:value_at_index_four=>nil, :all_values=>[1, 2, 3]}
