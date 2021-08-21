@@ -1,11 +1,15 @@
 #module with self.included method
 module Delicious
   
-  def self.included(my_class) # runs when you call "include"
+  def self.included(my_class) # runs when you call "include" (class methods)
      attr_accessor :food
+
+     def my_class.taste
+      puts "tasty!"
+     end
   end
 
-  def eat
+  def eat # instance method to be included in the class
     @food ||= 0
     @food += 1
     puts "I have eaten #{food} items of food."
@@ -19,10 +23,11 @@ class Food
     puts "Em"
   end
 
-  expire
+  expire # runs when class is defined!
 end
 
 cake = Food.new
+Food.taste
 Food.expire
 cake.eat
 eat_method = cake.method(:eat)
@@ -33,6 +38,7 @@ cake.eat
 p cake.food
 p Food.methods(false).sort
 p cake.method(:eat).super_method
+p cake.instance_variables # [:@food]
 
 if cake.respond_to?("eat")
   puts "YES"
@@ -40,6 +46,45 @@ end
 if !cake.respond_to?("cry")
   puts "no"
 end
+
+# Module with self.extended method
+module Happy
+  def self.extended(obj) # Runs as soon as object extend this module. (Class methods or if objextend(Happy) - then methods for this particular object. Class is also an object. Can do: with "extend" inside the class or myClass.extend(Happy) )
+
+    puts "I run"
+    def obj.smile
+      puts "object #{obj} is smiling!"
+    end
+  end
+
+  def laugh # Method for the class
+    puts "Laughing!"
+  end
+end
+
+class Human
+  extend Happy # I run
+end
+
+p Human.methods.sort
+p Human.laugh
+
+
+# Run code when superclass inherits a subclass
+class Grandpa
+  def self.inherited(subclass)
+    puts "NOW"
+    def subclass.new_method
+      puts "new_method"
+    end
+  end
+end
+
+class Papa < Grandpa # NOW
+end
+class Child < Grandpa # NOW
+end
+p Child.new_method # new method
 
 #Nested classes and modules. Scope (1.5)
 class C

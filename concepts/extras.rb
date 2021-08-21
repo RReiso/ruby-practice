@@ -62,4 +62,5 @@ a, b = gugu(8)
 p a
 p b
 
-
+p local_variables
+p global_variables
