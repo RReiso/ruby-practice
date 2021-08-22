@@ -47,3 +47,9 @@ m = phone_regex.match(string)
 p "Mani sauc Arturs".scan(/[aeiou]/i) # ["a", "i", "a", "u", "A", "u"]
 
 p "hello".methods.grep(/case/).sort # Displays methods with "case" in them
+
+p "a-bb-cccc-dddd".split("-") # ["a", "bb", "cccc", "dddd"]
+
+a = "hello"
+a.freeze
+# a[0]="H" # Exception

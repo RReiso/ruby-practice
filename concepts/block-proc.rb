@@ -88,3 +88,14 @@ lambda_vs_proc
 # Hi, I'm your lambda!
 # Returned from lambda!
 # Hello from proc!
+
+
+# currying
+add = ->(a,b){a+b}
+add2=->(a){->(b){a+b}}
+p add2.call(5).call(6) # 11
+p add2.curry.(5).(6)
+
+
+select_multiples = ->(num,arr) { arr.select{|el| el % num == 0}}
+p select_multiples.curry.(3).([5,6,8,9,10,12]) # [6,9,12]

@@ -62,6 +62,9 @@ arr.each { |key, value| p "key: #{key}, value: #{value}" }
 # "key: 7"
 # "key: tomato"
 
+arr = [[4,"a"],[2,"b"]]
+arr.each {|num,letter| puts letter*num}
+
 names_with_ages = [['lucy', 3], ['rita', 9], ['markus', 11]]
 
 names_with_ages.each { |name, age| puts name.ljust(7, '*') + age.to_s }
