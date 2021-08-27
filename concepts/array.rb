@@ -93,3 +93,14 @@ names_with_ages.each { |name, age| puts name.ljust(7, '*') + age.to_s }
 value = [1, 2, 3]
 p value_at_index_four: value[4], all_values: value
 #{:value_at_index_four=>nil, :all_values=>[1, 2, 3]}
+p [1,20,3].itself
+p [1,3, 1, 1,20,3].group_by(&:itself) # {1=>[1, 1, 1], 3=>[3, 3], 20=>[20]}
+
+p [[1, 3, 4, 5], [8, 9, 4, 3, 4]].flat_map{|arr| arr.inject(:+)}
+# [13,28]
+
+a = [1, 2, 3, 4, 5]
+b = [4,5,6,7]
+p a|b # [1, 2, 3, 4, 5, 6, 7]
+
+p (1..7).to_a 

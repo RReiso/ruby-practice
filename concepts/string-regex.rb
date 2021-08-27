@@ -53,3 +53,9 @@ p "a-bb-cccc-dddd".split("-") # ["a", "bb", "cccc", "dddd"]
 a = "hello"
 a.freeze
 # a[0]="H" # Exception
+p "hello".itself
+
+arr = %w[red blue green yellow]
+change = Regexp.union(arr)
+p "red blue yellow red purple green blue white".gsub(change, "?")
+# "? ? ? ? purple ? ? white"

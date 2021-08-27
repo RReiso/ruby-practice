@@ -26,16 +26,23 @@ p h.replace({c:3}) # {:c=>3}
 
 p h.has_key?(:c) #true
 p h.include?(:c)
-p h.key?(:c)
+p h.key?(:c) # true
 p h.member?(:c)
 p h.has_value?(3) # true
 p h.value?(3)
 p h.empty? # false
 p h.size # 1
+p h.fetch(:c) # 3
+# p h.fetch(:m) # KeyError
+p h.fetch(:m, 6) # 6
+p h # {:c=>3}
+a = {m:5}
+p a.merge!(h) # {:m=>5, :c=>3}
 
 # select, reject - with block
 # compact - eliminates keys with value nil
 # clear - empties the hash
+# dig - for nested hashes
 
 food = Hash.new([])
 food[:vegetables] << 'tomatoes'
@@ -54,7 +61,7 @@ p food[:fruits] # ["apples"]
 hash1 = { fruit: 'apple', veggetable: 'tomato', number: 7 }
 
 arr = hash1.sort_by { |key, value| key } #[[:fruit, "apple"], [:number, 7], [:veggetable, "tomato"]]
-arr = hash1.sort_by(&:last)
+# arr = hash1.sort_by(&:last) # Error
 arr = hash1.sort_by { |key| key } #[[:fruit, "apple"], [:number, 7], [:veggetable, "tomato"]]
 arr1 = hash1.sort_by(&:itself) #[[:fruit, "apple"], [:number, 7], [:veggetable, "tomato"]]
 p arr1
