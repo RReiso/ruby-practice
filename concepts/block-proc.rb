@@ -99,3 +99,6 @@ p add2.curry.(5).(6)
 
 select_multiples = ->(num,arr) { arr.select{|el| el % num == 0}}
 p select_multiples.curry.(3).([5,6,8,9,10,12]) # [6,9,12]
+
+printing = method(:puts)
+[1,2,3,4].each(&printing)

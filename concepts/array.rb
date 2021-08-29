@@ -35,6 +35,7 @@ p %w[ama ba kara di ku kam].sort_by(&:length) # ["ba", "di", "ku", "ama", "kam",
 p [1, 3, 4, 5, 8, 9, 4, 3, 4].take_while { |n| n < 8 } # [1, 3, 4, 5]
 p [1, 3, 4, 5, 8, 9, 4, 3, 4].drop_while { |n| n < 8 } # [8, 9, 4, 3, 4]
 p [1, 3, 4, 5, 8, 9, 4, 3, 4].partition { |n| n < 8 } # [[1, 3, 4, 5, 4, 3, 4], [8, 9]]
+p [1, 3, 4, 5, 8, 9, 4, 3, 4].partition(&:even?) 
 
 #size, empty?, include?, count, first, last, sample, reverse
 
@@ -104,3 +105,6 @@ b = [4,5,6,7]
 p a|b # [1, 2, 3, 4, 5, 6, 7]
 
 p (1..7).to_a 
+
+p [1,2,3] == [1,2,3]
+# [1,2,3,4].each(&:puts) - private method `puts' called for 1:Integer (NoMethodError)

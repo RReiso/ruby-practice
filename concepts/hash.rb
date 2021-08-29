@@ -35,6 +35,7 @@ p h.size # 1
 p h.fetch(:c) # 3
 # p h.fetch(:m) # KeyError
 p h.fetch(:m, 6) # 6
+p h.fetch(:m) {6} # 6
 p h # {:c=>3}
 a = {m:5}
 p a.merge!(h) # {:m=>5, :c=>3}
