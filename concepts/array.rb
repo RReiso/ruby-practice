@@ -38,6 +38,7 @@ p [1, 3, 4, 5, 8, 9, 4, 3, 4].partition { |n| n < 8 } # [[1, 3, 4, 5, 4, 3, 4], 
 p [1, 3, 4, 5, 8, 9, 4, 3, 4].partition(&:even?) 
 
 #size, empty?, include?, count, first, last, sample, reverse
+# union, intersection, difference
 
 p 5.step(16, 2).map { |num| num.to_s + '!' } # ["5!", "7!", "9!", "11!", "13!", "15!"]
 
@@ -108,3 +109,4 @@ p (1..7).to_a
 
 p [1,2,3] == [1,2,3]
 # [1,2,3,4].each(&:puts) - private method `puts' called for 1:Integer (NoMethodError)
+

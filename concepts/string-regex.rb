@@ -36,6 +36,8 @@ p /[0-9]/.match?("d7u66") # true
 # {3} - exactly 3 chars
 # {1,10} - 1 to 10 chars
 # {3, } - 3 or more chars
+# \A - beginning of a string
+# \Z - end of a string
 # ^ - beginning of a line
 # $ - end
 # i - case insensitive
@@ -67,3 +69,5 @@ p "red blue yellow red purple green blue white".gsub(change, "?")
 
 p "aba4764aba"=~/[0-9]/ # 3 (first index)
 p "abaaba"=~/[0-9]/ # nil
+
+p "Labdien. Ko tu teici? Nezinu!".split(/\.|\?|!/) # ["Labdien", " Ko tu teici", " Nezinu"]
